@@ -35,8 +35,13 @@ async function fetchFromNetwork(event) {
 }
 
 async function addToCache(cacheName, request, response) {
+    if (request.url.startsWith("chrome-extension://")) {
+      return;
+    }
+  
     const cache = await caches.open(cacheName);
     if (response.ok) {
+        
         await cache.add(request, response);
     } else if (response.opaque) {
         await cache.put(request, response);
