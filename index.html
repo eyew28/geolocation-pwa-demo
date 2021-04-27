@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
-          .catch(e => console.error('Service worker registration failed:', error));
+        await navigator.serviceWorker.register('/sw.js');
       } else {
         console.error('Service workers are not supported.');
       }
