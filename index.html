@@ -21,12 +21,29 @@
       <h1 class="display-4">PWA with an offline-capable service worker</h1>
       <p class="lead">This is a web app that has a service worker that can serve pages while offline.</p>
     </div>    
+<script>
+    if ("geolocation" in navigator) {
+      /* geolocation is available */
+      navigator.geolocation.getCurrentPosition(function(position) {
+        console.log(position)
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+        // document.write("Your location: https://maps.google.com/?q= " + lat + "," + lng)
+        
+              var a = document.createElement('a');
+      var linkText = document.createTextNode("Your Location");
+      a.appendChild(linkText);
+      a.title = "Your Location";
+      a.href = "https://maps.google.com/?q= " + lat + "," + lng;
+      document.body.appendChild(a);
     
-    <!-- include the Glitch button to show what the webpage is about and
-      to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js"></script>
-	  
+      })
+    } else {
+       alert("Geolocation not enabled.");
+      /* geolocation IS NOT available */
+    }
+    </script>    
+
 	</body>
 	
 	
