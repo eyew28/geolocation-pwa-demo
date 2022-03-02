@@ -33,9 +33,9 @@
         // document.write("Your location: https://maps.google.com/?q= " + lat + "," + lng)
         
               var a = document.createElement('a');
-      var linkText = document.createTextNode("Your Location");
+      var linkText = document.createTextNode("Your Location: "   + lat + "," + lng);
       a.appendChild(linkText);
-      a.title = "Your Location";
+      a.title = "Your Location: ";
       a.href = "https://maps.google.com/?q= " + lat + "," + lng;
       document.body.appendChild(a);
     
